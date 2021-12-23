@@ -38,11 +38,9 @@ from ast import literal_eval
 
 try:
     from Crypto.Hash import SHA3_256
-    from Crypto.Random import random
 except ModuleNotFoundError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "pycryptodome"])
     from Crypto.Hash import SHA3_256
-    from Crypto.Random import random
 
 
 def create_signature(message, private_key):
