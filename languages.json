@@ -1,0 +1,40 @@
+{
+  "Deutsch": {
+    "Store": "Shop",
+    "Library": "Bibliothek",
+    "mmLauncher": "mmLauncher",
+    "Launch": "",
+    "sort by": "Sortieren",
+    "Install app from file": "Programm aus Datei installieren",
+    "Select file": "Datei auswählen",
+    "Install": "Installieren",
+    "Verified": "Verifiziert",
+    "Unknown source": "Unbekannte Quelle",
+    "Install app - mmLauncher": "App installieren - mmLauncher",
+    "Warning - mmLauncher": "Warnung - mmLauncher",
+    "This app is not secure and probably contains malware!": "Diese App ist nicht sicher und enthält wahrscheinlich Schadsoftware!",
+    "settings": "Einstellungen",
+    "delete app": "App löschen",
+    "Language": "Sprache",
+    "_Launch2": "ausführen"
+  },
+  "English": {
+    "Store": "Store",
+    "Library": "Library",
+    "mmLauncher": "mmLauncher",
+    "Launch": "Launch",
+    "sort by": "sort by",
+    "Install app from file": "Install app from file",
+    "Select file": "Select file",
+    "Install": "Install",
+    "Verified": "Verified",
+    "Unknown source": "Unknown source",
+    "Install app - mmLauncher": "Install app - mmLauncher",
+    "Warning - mmLauncher": "Warning - mmLauncher",
+    "This app is not secure and probably contains malware!": "This app is not secure and probably contains malware!",
+    "settings": "settings",
+    "delete app": "delete app",
+    "Language": "Language",
+    "_Launch2": ""
+  }
+}
