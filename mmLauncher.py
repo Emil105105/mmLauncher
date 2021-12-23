@@ -51,11 +51,9 @@ except ModuleNotFoundError:
 
 try:
     from Crypto.Hash import SHA3_256
-    from Crypto.Random import random
 except ModuleNotFoundError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "pycryptodome"])
     from Crypto.Hash import SHA3_256
-    from Crypto.Random import random
 
 
 def relative_file(relative_path: str):
