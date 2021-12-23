@@ -16,7 +16,9 @@
     "settings": "Einstellungen",
     "delete app": "App löschen",
     "Language": "Sprache",
-    "_Launch2": "ausführen"
+    "_Launch2": "ausführen",
+    "Favourite": "Favorit",
+    "Do you want to proceed? This action cannot be undone!": "Möchten Sie fortfahren? Diese Aktion kann nicht rückganging gemacht werden!"
   },
   "English": {
     "Store": "Store",
@@ -35,6 +37,8 @@
     "settings": "settings",
     "delete app": "delete app",
     "Language": "Language",
-    "_Launch2": ""
+    "_Launch2": "",
+    "Favourite": "Favourite",
+    "Do you want to proceed? This action cannot be undone!": "Do you want to proceed? This action cannot be undone!"
   }
 }
