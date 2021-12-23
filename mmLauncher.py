@@ -194,7 +194,7 @@ def install_app_dialog():
     d1 = tk.Label(install_window, text='', width=64, font='Helvetica 10')
     e1_pressed = tk.BooleanVar()
     e1_pressed.set(False)
-    e1 = tk.Button(install_window, text=t('Install'), width=32, state=tk.DISABLED)
+    e1 = tk.Button(install_window, text=t('Install'), width=32, state=tk.DISABLED, command=lambda: e1_pressed.set(True))
     a1.grid(row=0, column=0, columnspan=2)
     b1.grid(row=1, column=0, columnspan=2)
     c1.grid(row=2, column=0)
@@ -349,6 +349,12 @@ def delete_app(name):
     c.remove(name)
     with open(relative_file('src/appdata/packages.list'), 'w') as f:
         f.write(str(c))
+    with open(relative_file('src/userdata/favourites.list'), 'r') as f:
+        favourites = literal_eval(f.read())
+    if name in favourites:
+        favourites.remove(name)
+        with open(relative_file('src/userdata/favourites.list'), 'w') as f:
+            f.write(str(favourites))
     log('deleted ' + name)
 
 
@@ -460,7 +466,16 @@ def win_app_settings(name: str):
     a1_pressed = tk.BooleanVar()
     a1_pressed.set(False)
     a1 = tk.Button(app_settings_window, text=t('delete app'), command=lambda: a1_pressed.set(True))
+    b1_selected = tk.IntVar(app_settings_window)
+    if name in get_favourites():
+        b1_selected.set(1)
+    else:
+        b1_selected.set(0)
+    b1_changed = tk.BooleanVar()
+    b1_changed.set(False)
+    b1 = tk.Checkbutton(app_settings_window, text=t('Favourite'), variable=b1_selected, onvalue=1, offvalue=0, command=lambda: b1_changed.set(True))
     a1.grid(row=0, column=0)
+    b1.grid(row=1, column=0)
     loop = tk.BooleanVar()
     loop.set(True)
     while loop.get():
@@ -468,9 +483,25 @@ def win_app_settings(name: str):
             app_settings_window.update()
             if a1_pressed.get():
                 a1_pressed.set(False)
-                option = messagebox.askyesnocancel()
+                option = messagebox.askyesnocancel(t('mmLauncher'), t('Do you want to proceed? This action cannot be undone!'))
                 if option:
                     delete_app(name)
+            if b1_changed.get():
+                print(0)
+                print(b1_selected.get() + 10)
+                print(name in get_favourites())
+                b1_changed.set(False)
+                if b1_selected.get() == 1 and name not in get_favourites():
+                    print(1)
+                    x = get_favourites()
+                    with open(relative_file('src/userdata/favourites.list'), 'w') as f:
+                        f.write(str(x + [name]))
+                elif b1_selected.get() == 0 and name in get_favourites():
+                    print(2)
+                    x = get_favourites()
+                    x.remove(name)
+                    with open(relative_file('src/userdata/favourites.list'), 'w') as f:
+                        f.write(str(x))
         except tk.TclError:
             loop.set(False)
 
