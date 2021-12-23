@@ -10,3 +10,4 @@ Please note that you have to restart the launcher to apply changes.
 ## Create own apps
 Generate RSA keys and save them as base10 [public, private, mod] in 
 rsa.list. Then you can use the provided developer apps.
+There must be a main.py, icon.gif and icon_high.gif.
