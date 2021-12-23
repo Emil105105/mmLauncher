@@ -656,7 +656,7 @@ def edit_dialog(name: str) -> None:
 
 def init() -> str:
     translate_init()
-    if os.path.exists('passwords.bin') and os.path.exists('config.txt'):
+    if os.path.exists(relative_file('src/apps/PasswordManager/passwords.bin')) and os.path.exists(relative_file('src/apps/PasswordManager/config.txt')):
         backup_message()
         with open(relative_file('src/apps/PasswordManager/' + 'config.txt'), 'r') as config_file:
             config_file_content = config_file.readlines()
@@ -922,7 +922,6 @@ def main() -> bool:
 
 if __name__ == '__main__':
     _loop = True
-    print(os.getcwd())
     while _loop:
         _language = []
         _password = init()
